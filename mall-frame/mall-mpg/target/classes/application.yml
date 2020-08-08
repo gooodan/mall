@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: mall-mpg
+
+mybatis-plus:
+ configuration:
+  map-underscore-to-camel-case: true
+  auto-mapping-behavior: full
+  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+ mapper-locations: classpath*:com/**/mapper/*Mapper.xml
