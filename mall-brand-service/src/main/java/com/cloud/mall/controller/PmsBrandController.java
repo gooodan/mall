@@ -1,6 +1,8 @@
 package com.cloud.mall.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cloud.mall.common.api.CommonResult;
 import com.cloud.mall.mbg.model.PmsBrand;
 import com.cloud.mall.service.PmsBrandService;
@@ -17,7 +19,7 @@ import java.util.List;
  * 品牌表 前端控制器
  * </p>
  *
- * @author snow
+ * @author sg
  * @since 2020-08-06
  */
 @RestController
@@ -58,7 +60,31 @@ public class PmsBrandController {
             LOGGER.debug("updateBrand failed:{}", pmsBrandDto);
             return CommonResult.failed("更新失败");
         }
-
     }
 
+    @PostMapping(value = "/delete/{id}")
+    public CommonResult deleteBrand(@PathVariable("id") Long id) {
+        boolean flag = pmsBrandService.removeById(id);
+        if (flag) {
+            LOGGER.debug("delete success:id={}", id);
+            return CommonResult.success(null);
+        } else {
+            LOGGER.debug("deleteBrand failed :id={}", id);
+            return CommonResult.failed("删除失败");
+        }
+    }
+
+    @GetMapping(value = "/list")
+    public CommonResult<IPage<PmsBrand>> listBrand(@RequestParam(value = "current", defaultValue = "1") Integer current,
+                                                   @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        Page<PmsBrand> page = new Page<PmsBrand>(current, size);
+        IPage<PmsBrand> iPage = pmsBrandService.page(page);
+
+        return CommonResult.success(iPage);
+    }
+
+    @GetMapping(value = "/{id}")
+    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
+        return CommonResult.success(pmsBrandService.getById(id));
+    }
 }
