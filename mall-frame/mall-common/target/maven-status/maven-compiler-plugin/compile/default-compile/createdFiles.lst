@@ -1,6 +1,6 @@
-com/cloud/mall/common/exception/Asserts.class
-com/cloud/mall/common/api/ResultCode.class
-com/cloud/mall/common/api/CommonResult.class
-com/cloud/mall/common/exception/ApiException.class
-com/cloud/mall/common/api/IErrorCode.class
-com/cloud/mall/common/exception/GlobalExceptionHandler.class
+com\cloud\mall\common\exception\ApiException.class
+com\cloud\mall\common\api\ResultCode.class
+com\cloud\mall\common\exception\Asserts.class
+com\cloud\mall\common\api\IErrorCode.class
+com\cloud\mall\common\api\CommonResult.class
+com\cloud\mall\common\exception\GlobalExceptionHandler.class
