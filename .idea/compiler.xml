@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mall-brand-service" />
+        <module name="mall-admin" />
         <module name="mall-common" />
         <module name="mall-mpg" />
+        <module name="mall-product-service" />
       </profile>
     </annotationProcessing>
   </component>

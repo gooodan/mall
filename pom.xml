@@ -12,6 +12,7 @@
     <modules>
         <module>mall-brand-service</module>
         <module>mall-frame</module>
+        <module>mall-admin</module>
     </modules>
 
 
