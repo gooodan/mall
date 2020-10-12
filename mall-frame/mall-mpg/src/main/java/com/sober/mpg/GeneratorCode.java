@@ -1,4 +1,4 @@
-package com.cloud.mall;
+package com.sober.mpg;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -33,12 +33,12 @@ public class GeneratorCode {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/" + moduleName + "/src/main/java");
-        gc.setAuthor("sg");
+        gc.setAuthor("sober");
         gc.setOpen(false);
         //实体属性 Swagger2 注解
-        gc.setSwagger2(false);
+        gc.setSwagger2(true);
         gc.setServiceName("%sService");
-//        gc.setFileOverride(true);
+        gc.setFileOverride(true);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -52,9 +52,9 @@ public class GeneratorCode {
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(moduleName);
-        pc.setParent("com.cloud.mall");
-        pc.setEntity("mbg.model");
-        pc.setMapper("mbg.mapper");
+        pc.setParent("com.sober.mall.product");
+        pc.setEntity("model");
+        pc.setMapper("mapper");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         mpg.setPackageInfo(pc);
@@ -73,7 +73,6 @@ public class GeneratorCode {
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
 
-        strategy.setEntityLombokModel(true);
         // 公共父类
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
         // 写于父类中的公共字段

@@ -1,6 +1,6 @@
-package com.cloud.mall.service;
+package com.sober.mall.product.service;
 
-import com.cloud.mall.mbg.model.PmsBrand;
+import com.sober.mall.product.model.PmsBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 品牌表 服务类
  * </p>
  *
- * @author sg
- * @since 2020-08-07
+ * @author sober
+ * @since 2020-10-12
  */
 public interface PmsBrandService extends IService<PmsBrand> {
 

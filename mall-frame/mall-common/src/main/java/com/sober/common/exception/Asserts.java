@@ -1,6 +1,6 @@
-package com.cloud.mall.common.exception;
+package com.sober.common.exception;
 
-import com.cloud.mall.common.api.IErrorCode;
+import com.sober.common.api.IErrorCode;
 
 /**
  * 断言处理类，用于抛出各种API异常

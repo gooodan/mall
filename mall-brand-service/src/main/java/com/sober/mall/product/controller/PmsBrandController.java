@@ -1,11 +1,11 @@
-package com.cloud.mall.controller;
+package com.sober.mall.product.controller;
 
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cloud.mall.common.api.CommonResult;
-import com.cloud.mall.mbg.model.PmsBrand;
-import com.cloud.mall.service.PmsBrandService;
+import com.sober.common.api.CommonResult;
+import com.sober.mall.product.model.PmsBrand;
+import com.sober.mall.product.service.PmsBrandService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -19,8 +19,8 @@ import java.util.List;
  * 品牌表 前端控制器
  * </p>
  *
- * @author sg
- * @since 2020-08-06
+ * @author sober
+ * @since 2020-10-12
  */
 @RestController
 @RequestMapping("/brand")

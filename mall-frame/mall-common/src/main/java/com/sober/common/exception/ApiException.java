@@ -1,6 +1,6 @@
-package com.cloud.mall.common.exception;
+package com.sober.common.exception;
 
-import com.cloud.mall.common.api.IErrorCode;
+import com.sober.common.api.IErrorCode;
 
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;

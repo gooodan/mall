@@ -1,4 +1,4 @@
-package com.cloud.mall.config;
+package com.sober.mpg.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.cloud.mall.mbg.mapper")
 public class MyBatisPlusConfig {
     /**
      * 分页插件

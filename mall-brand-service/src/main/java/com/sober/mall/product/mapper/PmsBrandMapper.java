@@ -1,6 +1,6 @@
-package com.cloud.mall.mbg.mapper;
+package com.sober.mall.product.mapper;
 
-import com.cloud.mall.mbg.model.PmsBrand;
+import com.sober.mall.product.model.PmsBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * 品牌表 Mapper 接口
  * </p>
  *
- * @author sg
- * @since 2020-08-07
+ * @author sober
+ * @since 2020-10-12
  */
 public interface PmsBrandMapper extends BaseMapper<PmsBrand> {
 

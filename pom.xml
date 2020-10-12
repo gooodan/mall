@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cloud.mall</groupId>
+    <groupId>com.sober</groupId>
     <artifactId>mall</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -29,7 +29,7 @@
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-models.version>1.6.0</swagger-models.version>
         <swagger-annotations.version>1.6.0</swagger-annotations.version>
-        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
         <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
         <spring-cloud-context.version>2.0.4.RELEASE</spring-cloud-context.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>

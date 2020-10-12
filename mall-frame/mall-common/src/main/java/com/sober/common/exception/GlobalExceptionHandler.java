@@ -1,6 +1,6 @@
-package com.cloud.mall.common.exception;
+package com.sober.common.exception;
 
-import com.cloud.mall.common.api.CommonResult;
+import com.sober.common.api.CommonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

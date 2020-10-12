@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>mall-frame</artifactId>
-        <groupId>com.cloud.mall</groupId>
+        <groupId>com.sober</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,6 +13,12 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>com.sober</groupId>
+            <artifactId>mall-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Mybatis Plus -->
         <dependency>
             <groupId>com.baomidou</groupId>

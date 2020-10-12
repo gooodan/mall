@@ -1,4 +1,4 @@
-package com.cloud.mall.common.api;
+package com.sober.common.api;
 
 public enum ResultCode implements IErrorCode {
 
