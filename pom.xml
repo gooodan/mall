@@ -10,9 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>mall-brand-service</module>
         <module>mall-frame</module>
         <module>mall-admin</module>
+        <module>mall-auth</module>
     </modules>
 
 
