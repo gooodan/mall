@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.sober.mall.product.mapper")
-public class MallApplication {
+public class MallProductApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MallApplication.class, args);
+        SpringApplication.run(MallProductApplication.class, args);
     }
 
 }
