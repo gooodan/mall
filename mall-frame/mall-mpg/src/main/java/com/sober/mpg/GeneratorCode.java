@@ -52,7 +52,7 @@ public class GeneratorCode {
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(moduleName);
-        pc.setParent("com.sober.mall.product");
+        pc.setParent("com.sober.mall.user");
         pc.setEntity("model");
         pc.setMapper("mapper");
         pc.setService("service");
@@ -63,6 +63,9 @@ public class GeneratorCode {
         TemplateConfig templateConfig = new TemplateConfig();
 
         templateConfig.setXml(null);
+        //控制 不生成 controller
+        templateConfig.setController("");
+
         mpg.setTemplate(templateConfig);
 
         // 策略配置
