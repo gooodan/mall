@@ -79,13 +79,13 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         }
         Map<String, String> params = new HashMap<>();
         params.put("client_id", AuthConstant.ADMIN_CLIENT_ID);
+
         params.put("client_secret", "123456");
         params.put("grant_type", "password");
         params.put("username", username);
         params.put("password", password);
         CommonResult restResult = authService.getAccessToken(params);
         if (ResultCode.SUCCESS.getCode() == restResult.getCode() && restResult.getData() != null) {
-//            updateLoginTimeByUsername(username);
             insertLoginLog(username);
         }
         return restResult;
@@ -114,7 +114,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     private UmsAdmin getAdminByUsername(String username) {
 
-        // 查询是否有相同用户名的用户
+        // 查询用户
         QueryWrapper<UmsAdmin> condition = new QueryWrapper<>();
         condition.eq("username", username);
         List<UmsAdmin> umsAdminList = umsAdminMapper.selectList(condition);
