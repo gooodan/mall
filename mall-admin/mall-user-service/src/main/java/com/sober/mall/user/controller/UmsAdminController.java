@@ -2,6 +2,7 @@ package com.sober.mall.user.controller;
 
 
 import com.sober.common.api.CommonResult;
+import com.sober.common.domain.UserDto;
 import com.sober.mall.user.dto.UmsAdminLoginParam;
 import com.sober.mall.user.dto.UmsAdminParam;
 import com.sober.mall.user.model.UmsAdmin;
@@ -35,5 +36,11 @@ public class UmsAdminController {
     @PostMapping(value = "/login")
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
         return umsAdminService.login(umsAdminLoginParam.getUsername(),umsAdminLoginParam.getPassword());
+    }
+
+    @ApiOperation("根据用户名获取通用用户信息")
+    @GetMapping(value = "/loadByUsername")
+    public UserDto loadUserByUsername(@RequestParam String username) {
+        return umsAdminService.loadUserByUsername(username);
     }
 }

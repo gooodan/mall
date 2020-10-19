@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class GeneratorCode {
 
-    private static final String XML_OUTPATH = "mall-frame/mall-mpg/src/main/resources/META-INF/mapper/";
+    private static final String XML_OUTPATH = "/src/main/resources/META-INF/mapper/";
 
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
@@ -37,7 +37,7 @@ public class GeneratorCode {
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
-        String moduleName = scanner("模块名");
+        final String moduleName = scanner("模块名");
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/" + moduleName + "/src/main/java");
@@ -88,7 +88,7 @@ public class GeneratorCode {
                /* return projectPath + "/src/main/resources/mappers/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;*/
                 //根据自己的位置修改
-                return projectPath + XML_OUTPATH +tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/" + moduleName + XML_OUTPATH +tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*

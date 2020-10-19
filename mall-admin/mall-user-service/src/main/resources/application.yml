@@ -16,6 +16,10 @@ spring:
         login-username: druid
         login-password: druid
 
+mybatis-plus:
+ mapper-locations:
+   - classpath:META-INF/mapper/*.xml
+   - classpath*:com/**/mapper/*.xml
 
 feign:
   okhttp:

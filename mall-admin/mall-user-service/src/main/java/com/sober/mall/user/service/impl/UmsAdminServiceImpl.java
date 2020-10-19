@@ -1,5 +1,6 @@
 package com.sober.mall.user.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
@@ -8,13 +9,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sober.common.api.CommonResult;
 import com.sober.common.api.ResultCode;
 import com.sober.common.constant.AuthConstant;
+import com.sober.common.domain.UserDto;
 import com.sober.common.exception.Asserts;
 import com.sober.mall.user.dto.UmsAdminParam;
+import com.sober.mall.user.mapper.UmsAdminLoginLogMapper;
+import com.sober.mall.user.mapper.UmsAdminRoleRelationMapper;
 import com.sober.mall.user.model.UmsAdmin;
 import com.sober.mall.user.mapper.UmsAdminMapper;
 import com.sober.mall.user.model.UmsAdminLoginLog;
+import com.sober.mall.user.model.UmsRole;
 import com.sober.mall.user.service.AuthService;
-import com.sober.mall.user.service.UmsAdminLoginLogService;
 import com.sober.mall.user.service.UmsAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
@@ -30,6 +34,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -48,7 +53,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     @Resource
     private AuthService authService;
     @Resource
-    private UmsAdminLoginLogService umsAdminLoginLogService;
+    private UmsAdminLoginLogMapper adminLoginLogMapper;
+    @Resource
+    private UmsAdminRoleRelationMapper adminRoleRelationMapper;
 
     @Override
     public UmsAdmin register(UmsAdminParam umsAdminParam) {
@@ -91,6 +98,23 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         return restResult;
     }
 
+    @Override
+    public UserDto loadUserByUsername(String username) {
+        //获取用户信息
+        UmsAdmin admin = getAdminByUsername(username);
+        if (admin != null) {
+            List<UmsRole> roleList = getRoleList(admin.getId());
+            UserDto userDTO = new UserDto();
+            BeanUtils.copyProperties(admin, userDTO);
+            if (CollUtil.isNotEmpty(roleList)) {
+                List<String> roleStrList = roleList.stream().map(item -> item.getId() + "_" + item.getName()).collect(Collectors.toList());
+                userDTO.setRoles(roleStrList);
+            }
+            return userDTO;
+        }
+        return null;
+    }
+
     /**
      * 添加登录记录
      *
@@ -108,7 +132,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         if (ObjectUtil.isNotNull(attributes)) {
             HttpServletRequest request = attributes.getRequest();
             loginLog.setIp(request.getRemoteAddr());
-            umsAdminLoginLogService.save(loginLog);
+            adminLoginLogMapper.insert(loginLog);
         }
     }
 
@@ -124,6 +148,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         return null;
     }
 
+    private List<UmsRole> getRoleList(Long adminId) {
+        return adminRoleRelationMapper.getRoleList(adminId);
+    }
 
 //    public static void main(String[] args) {
 //        System.out.println(LocalDateTime.now());
