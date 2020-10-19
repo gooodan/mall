@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
@@ -47,6 +48,7 @@ public class GeneratorCode {
         gc.setSwagger2(true);
         gc.setServiceName("%sService");
         gc.setFileOverride(true);
+        gc.setDateType(DateType.ONLY_DATE);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置

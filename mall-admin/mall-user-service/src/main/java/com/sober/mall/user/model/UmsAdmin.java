@@ -2,6 +2,7 @@ package com.sober.mall.user.model;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -50,10 +51,10 @@ public class UmsAdmin implements Serializable {
     private String note;
 
     @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     @ApiModelProperty(value = "最后登录时间")
-    private LocalDateTime loginTime;
+    private Date loginTime;
 
     @ApiModelProperty(value = "帐号启用状态：0->禁用；1->启用")
     private Integer status;

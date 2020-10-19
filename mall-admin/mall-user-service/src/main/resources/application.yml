@@ -17,10 +17,11 @@ spring:
         login-password: druid
 
 mybatis-plus:
- mapper-locations:
-   - classpath:META-INF/mapper/*.xml
-   - classpath*:com/**/mapper/*.xml
+ mapper-locations: classpath:/mapper/*.xml
 
 feign:
   okhttp:
     enabled: true
+ribbon:
+  ConnectTimeout: 3000 #服务请求连接超时时间（毫秒）
+  ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
